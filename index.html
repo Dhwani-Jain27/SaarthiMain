@@ -224,6 +224,47 @@
             margin-top: 3rem;
             margin-bottom: 2rem;
         }
+        .philosophy-section {
+  background: #F5F5F5;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.philosophy-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1E88E5;
+  margin-bottom: 20px;
+}
+
+.philosophy-section p {
+  font-family: 'Open Sans', sans-serif;
+  color: #212121;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.5;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.features-grid div {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features-grid div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 .testimonial {
   background: #fff;
   border-left: 4px solid var(--primary);
@@ -329,22 +370,21 @@
         </div>
     </section>
 
-    <section id="about" class="about fade-in">
-        <h2>Our Philosophy</h2>
-        <p>Inclusion is not charity—it is equity. Every individual deserves access to tools and community that empower them to live fulfilling lives.</p>
-    </section>
+<section class="philosophy-section">
+  <h2>Our Philosophy</h2>
+  <p>Inclusion is not charity—it is equity. Every individual deserves access to tools and community that empower them to live fulfilling lives.</p>
 
-    <section id="features" class="features fade-in">
-        <h2>What Sets Us Apart</h2>
-        <div class="features-grid">
-            <div class="feature-box">Age-Inclusive Design</div>
-            <div class="feature-box">Cross-Disability Focus</div>
-            <div class="feature-box">Local Resource Mapping</div>
-            <div class="feature-box">Accessible by Design</div>
-            <div class="feature-box">Community First</div>
-            <div class="feature-box">Multi-Language Support</div>
-        </div>
-    </section>
+  <h2>What Sets Us Apart</h2>
+  <div class="features-grid">
+    <div>🌍 Age-Inclusive Design</div>
+    <div>🎯 Cross-Disability Focus</div>
+    <div>📍 Local Resource Mapping</div>
+    <div>♿ Accessible by Design</div>
+    <div>👥 Community First</div>
+    <div>🗣 Multi-Language Support</div>
+  </div>
+</section>
+
 
     <section class="faq-section fade-in" id="faq">
         <h2>Frequently Asked Questions</h2>
