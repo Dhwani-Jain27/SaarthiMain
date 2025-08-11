@@ -6,15 +6,10 @@
 <title>Saarthi — Resources (Accessible Demo)</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  
-   <link rel="icon" href="favicon.ico.jpg">
-  <!-- SEO Metadata -->
-<title>Saarthi — Therapist & School Finder</title>
+<link rel="icon" href="favicon.ico.jpg">
 <meta name="description" content="Find verified therapists and inclusive schools near you. Saarthi connects families to trusted care and education providers across India.">
 <meta name="keywords" content="Therapist finder, School finder, Special needs education, Occupational therapy, Speech therapy, Inclusive schools India">
 <meta name="author" content="Saarthi">
-
-<!-- Open Graph for social media -->
 <meta property="og:title" content="Saarthi — Therapist & School Finder">
 <meta property="og:description" content="Find verified therapists and inclusive schools near you.">
 <meta property="og:image" content="assets/og-image.jpg">
@@ -32,225 +27,38 @@
   --error: #EF5350;
   --accessible-bg: #2E2E2E;
   --accessible-text: #E0E0E0;
---root-font: 16px;
+  --root-font: 16px;
 }
-
-/* --- General Layout --- */
-html, body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-size: var(--root-font);
-  color: var(--text);
-}
-
-/* --- Header --- */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: #fff;
-  border-bottom: 2px solid var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  z-index: 1000;
-  flex-wrap: wrap;
-  min-height: 60px;
-}
-.brand {
-  font-family: 'Montserrat';
-  font-weight: 700;
-  color: var(--primary);
-  font-size: 1.25rem;
-}
-nav, .dropbtn, .dropdown-content a {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-}
-nav {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-weight: 600;
-}
-nav a[aria-current="page"] {
-  background: var(--accent);
-  color: var(--accent-text);
-}
-.controls {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.ctrl-btn {
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 6px;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-.font-slider {
-  width: 100px;
-}
-
-/* --- Main content --- */
-main {
-  max-width: 1100px;
-  margin: 110px auto 60px;
-  padding: 18px;
-}
-
-/* --- Filters --- */
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.chip-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.chip {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 8px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  user-select: none;
-}
-.chip[aria-pressed="true"] {
-  background: var(--primary);
-  color: #fff;
-  border-color: transparent;
-}
-.clear-chip {
-  background: transparent;
-  border: 1px dashed #bbb;
-  color: #333;
-}
-
-/* --- Grid --- */
-#resourcesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-/* --- Card --- */
-.card {
-  background: #fff;
-  border-left: 6px solid var(--primary);
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.meta-tag {
-  display: inline-block;
-  background: #eee;
-  color: #333;
-  font-size: .8rem;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 12px;
-  margin-right: 8px;
-  margin-bottom: 6px;
-}
-.card h3 {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  color: #000;
-}
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-.btn {
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn.secondary {
-  background: #42a5f5;
-  color: #fff;
-}
-
-/* --- Dropdown --- */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropbtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.95rem;
-  color: #212121;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  border-radius: 6px;
-  min-width: 180px;
-  z-index: 1000;
-}
-.dropdown-content a {
-  display: block;
-  padding: 8px 12px;
-  color: #212121;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f5f5f5;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* --- Accessibility mode --- */
-body.accessible {
-  background: var(--accessible-bg);
-  color: var(--accessible-text);
-}
-body.accessible header {
-  background: var(--accessible-bg);
-}
-body.accessible nav a {
-  color: var(--accessible-text);
-}
-body.accessible nav a[aria-current="page"] {
-  background: var(--accent);
-  color: var(--accent-text);
-}
-body.accessible .card {
-  background: #3a3a3a;
-  color: var(--accessible-text);
-}
+html, body {margin:0; font-family:'Open Sans', sans-serif; font-size:var(--root-font); color:var(--text);}
+header {position:fixed; top:0; left:0; right:0; background:#fff; border-bottom:2px solid var(--primary); display:flex; align-items:center; justify-content:space-between; padding:12px 18px; z-index:1000; flex-wrap:wrap; min-height:60px;}
+.brand {font-family:'Montserrat'; font-weight:700; color:var(--primary); font-size:1.25rem;}
+nav {display:flex; gap:10px; flex-wrap:wrap;}
+nav a {text-decoration:none; color:var(--text); padding:6px 8px; border-radius:6px; font-weight:600;}
+nav a[aria-current="page"] {background:var(--accent); color:var(--accent-text);}
+.controls {display:flex; gap:6px; align-items:center; flex-wrap:wrap;}
+.ctrl-btn {border:1px solid #ccc; background:#fff; border-radius:6px; padding:4px 8px; cursor:pointer;}
+.font-slider {width:100px;}
+main {max-width:1100px; margin:110px auto 60px; padding:18px;}
+.filters {display:flex; flex-direction:column; gap:12px; margin-bottom:18px;}
+.chip-row {display:flex; gap:8px; flex-wrap:wrap;}
+.chip {background:#fff; border:1px solid #ddd; padding:8px 12px; border-radius:999px; cursor:pointer; user-select:none;}
+.chip[aria-pressed="true"] {background:var(--primary); color:#fff; border-color:transparent;}
+.clear-chip {background:transparent; border:1px dashed #bbb; color:#333;}
+#resourcesGrid {display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px;}
+.card {background:#fff; border-left:6px solid var(--primary); border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.05); padding:14px; display:flex; flex-direction:column; gap:10px;}
+.meta-tag {display:inline-block; background:#eee; color:#333; font-size:.8rem; font-weight:600; padding:6px 10px; border-radius:12px; margin-right:8px; margin-bottom:6px;}
+.card h3 {margin:0; font-family:'Montserrat', sans-serif; font-size:1rem; color:#000;}
+.actions {display:flex; gap:8px; flex-wrap:wrap; margin-top:auto;}
+.btn {background:#1976d2; color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer;}
+.btn.secondary {background:#42a5f5; color:#fff;}
+body.accessible {background:var(--accessible-bg); color:var(--accessible-text);}
+body.accessible header {background:var(--accessible-bg);}
+body.accessible nav a {color:var(--accessible-text);}
+body.accessible nav a[aria-current="page"] {background:var(--accent); color:var(--accent-text);}
+body.accessible .card {background:#3a3a3a; color:var(--accessible-text);}
 </style>
 </head>
 <body>
-
 <header>
   <div class="brand">Saarthi</div>
   <nav>
@@ -267,14 +75,9 @@ body.accessible .card {
     <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
     <button id="increaseFont" class="ctrl-btn">A+</button>
     <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
-   <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
-  Screen Reader
-</button>
-
-
+    <button id="sr-toggle-btn" style="background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">Screen Reader</button>
   </div>
 </header>
-
 <main>
 <h1 style="font-family:Montserrat, sans-serif;">Resources</h1>
 <p>Accessible, person-first resources for caregivers and people with special needs.</p>
@@ -301,27 +104,11 @@ body.accessible .card {
   <div id="resourcesGrid"></div>
 </section>
 </main>
-
 <script>
 const allResources = [
   {id:"children-physical",age:"children",type:"physical",title:"Children — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"children-intellectual",age:"children",type:"intellectual",title:"Children — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"children-developmental",age:"children",type:"developmental",title:"Children — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"children-sensory",age:"children",type:"sensory",title:"Children — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"teens-physical",age:"teens",type:"physical",title:"Teens — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"teens-intellectual",age:"teens",type:"intellectual",title:"Teens — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"teens-developmental",age:"teens",type:"developmental",title:"Teens — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"teens-sensory",age:"teens",type:"sensory",title:"Teens — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"adults-physical",age:"adults",type:"physical",title:"Adults — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"adults-intellectual",age:"adults",type:"intellectual",title:"Adults — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"adults-developmental",age:"adults",type:"developmental",title:"Adults — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"adults-sensory",age:"adults",type:"sensory",title:"Adults — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"elderly-physical",age:"elderly",type:"physical",title:"Elderly — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"elderly-intellectual",age:"elderly",type:"intellectual",title:"Elderly — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"elderly-developmental",age:"elderly",type:"developmental",title:"Elderly — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"elderly-sensory",age:"elderly",type:"sensory",title:"Elderly — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"}
+  {id:"children-intellectual",age:"children",type:"intellectual",title:"Children — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"}
 ];
-
 function capitalize(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function renderGrid(ageFilter='all',typeFilter='all'){
@@ -341,7 +128,6 @@ function renderGrid(ageFilter='all',typeFilter='all'){
     grid.appendChild(card);
   });
 }
-
 function setAgeFilter(v){document.querySelectorAll('.chip[data-age]').forEach(c=>c.setAttribute('aria-pressed',(v==='all'&&c.getAttribute('data-age')==='all')||c.getAttribute('data-age')===v));}
 function setTypeFilter(v){document.querySelectorAll('.chip[data-type]').forEach(c=>c.setAttribute('aria-pressed',(v==='all'&&c.getAttribute('data-type')==='all')||c.getAttribute('data-type')===v));}
 function currentAge(){const a=[...document.querySelectorAll('.chip[data-age]')].find(c=>c.getAttribute('aria-pressed')==='true');return a?a.getAttribute('data-age'):'all';}
@@ -350,48 +136,48 @@ function currentType(){const a=[...document.querySelectorAll('.chip[data-type]')
 document.querySelectorAll('.chip[data-age]').forEach(c=>c.addEventListener('click',()=>{setAgeFilter(c.getAttribute('data-age'));renderGrid(currentAge(),currentType());}));
 document.querySelectorAll('.chip[data-type]').forEach(c=>c.addEventListener('click',()=>{setTypeFilter(c.getAttribute('data-type'));renderGrid(currentAge(),currentType());}));
 document.getElementById('clearFilters').addEventListener('click',()=>{setAgeFilter('all');setTypeFilter('all');renderGrid();});
+
+document.addEventListener("click", function (e) {
+  if (e.target.matches("[data-action='preview-pdf']")) {
+    const pdfUrl = e.target.getAttribute("data-pdf");
+    window.open(pdfUrl, "_blank");
+  }
+  if (e.target.matches("[data-action='preview-audio']")) {
+    const audioUrl = e.target.getAttribute("data-audio");
+    const audio = new Audio(audioUrl);
+    audio.play();
+  }
+});
+
+renderGrid();
 </script>
-
- <script>
-    function updateFont(px) {
-      document.documentElement.style.setProperty('--root-font', px + 'px');
-      localStorage.setItem('saarthi-font-size', px);
-      document.getElementById('fontSlider').value = Math.round((px / 16) * 100);
-    }
-
-    /* Load saved font size */
-    const savedFont = localStorage.getItem('saarthi-font-size');
-    if (savedFont) updateFont(parseInt(savedFont));
-
-    /* A+ */
-    document.getElementById('increaseFont').addEventListener('click', () => {
-      const cur = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--root-font'));
-      updateFont(Math.min(24, cur + 1));
-    });
-
-    /* A- */
-    document.getElementById('decreaseFont').addEventListener('click', () => {
-      const cur = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--root-font'));
-      updateFont(Math.max(12, cur - 1));
-    });
-
-    /* Slider */
-    document.getElementById('fontSlider').addEventListener('input', (e) => {
-      updateFont(Math.round((parseInt(e.target.value) / 100) * 16));
-    });
-
-    /* Contrast toggle */
-    document.getElementById('accessibleToggle').addEventListener('click', () => {
-      document.body.classList.toggle('accessible');
-      localStorage.setItem('saarthi-contrast', document.body.classList.contains('accessible') ? 'on' : 'off');
-    });
-
-    /* Load saved contrast */
-    if (localStorage.getItem('saarthi-contrast') === 'on') {
-      document.body.classList.add('accessible');
-    }
-  </script>
-
+<script>
+function updateFont(px) {
+  document.documentElement.style.setProperty('--root-font', px + 'px');
+  localStorage.setItem('saarthi-font-size', px);
+  document.getElementById('fontSlider').value = Math.round((px / 16) * 100);
+}
+const savedFont = localStorage.getItem('saarthi-font-size');
+if (savedFont) updateFont(parseInt(savedFont));
+document.getElementById('increaseFont').addEventListener('click', () => {
+  const cur = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--root-font'));
+  updateFont(Math.min(24, cur + 1));
+});
+document.getElementById('decreaseFont').addEventListener('click', () => {
+  const cur = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--root-font'));
+  updateFont(Math.max(12, cur - 1));
+});
+document.getElementById('fontSlider').addEventListener('input', (e) => {
+  updateFont(Math.round((parseInt(e.target.value) / 100) * 16));
+});
+document.getElementById('accessibleToggle').addEventListener('click', () => {
+  document.body.classList.toggle('accessible');
+  localStorage.setItem('saarthi-contrast', document.body.classList.contains('accessible') ? 'on' : 'off');
+});
+if (localStorage.getItem('saarthi-contrast') === 'on') {
+  document.body.classList.add('accessible');
+}
+</script>
 <footer style="background:#fff; padding:24px; border-top:1px solid #ddd; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; font-family:'Open Sans',sans-serif; font-size:0.95rem; color:#212121;">
   <div>
     <h3 style="font-family:'Montserrat',sans-serif; font-size:1.1rem; color:#1E88E5; margin:0 0 8px 0;">Organisation</h3>
@@ -405,21 +191,5 @@ document.getElementById('clearFilters').addEventListener('click',()=>{setAgeFilt
     <a href="https://instagram.com" target="_blank" style="background:#E4405F; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.9rem; text-decoration:none;">INSTAGRAM</a>
   </div>
 </footer>
-<script src="accessibility.js"></script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
