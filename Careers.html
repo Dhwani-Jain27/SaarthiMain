@@ -36,6 +36,15 @@
       --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 70% 55%));
     }
 
+    .brand{font-family:'Montserrat';font-weight:700;color:var(--primary);font-size:1.25rem;}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--text);padding:6px 8px;border-radius:6px;font-weight:600}
+nav a[aria-current="page"]{background:var(--accent);color:var(--accent-text)}
+.controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.ctrl-btn{border:1px solid #ccc;background:#fff;border-radius:6px;padding:4px 8px;cursor:pointer;}
+.font-slider{width:100px;}
+main{display:flex;gap:1rem;margin-top:100px;flex-wrap:wrap;padding:0 16px;max-width:1400px;margin-left:auto;margin-right:auto;}
+
     /* Reset-ish */
     *, *::before, *::after { box-sizing: border-box; }
     html:focus-within { scroll-behavior: smooth; }
@@ -594,6 +603,7 @@
   </script>
 </body>
 </html>
+
 
 
 
