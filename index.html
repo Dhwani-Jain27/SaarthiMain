@@ -277,6 +277,10 @@
     <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
     <button id="increaseFont" class="ctrl-btn">A+</button>
     <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
+       <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+  Screen Reader
+</button>
+
   </div>
 </header>
 
@@ -536,74 +540,7 @@
         }
     });
 
-    // Build custom sequence for Listening Mode
-    function setupListeningSequence() {
-        const selectors = [
-            'header nav a',
-            'h1','h2','h3','h4','h5','h6',
-            'p',
-            'button',
-            'img',
-            '.feature-box',
-            '.faq-question',
-            '.faq-answer'
-        ];
-        focusableSequence = Array.from(document.querySelectorAll(selectors.join(',')))
-            .filter(el => el.offsetParent !== null) // visible
-            .map(el => {
-                el.setAttribute('tabindex', '0');
-                return el;
-            });
-        focusIndex = 0;
-        focusableSequence[0].focus();
-        speakElement(focusableSequence[0]);
-    }
-
-    function speakElement(el) {
-        let text = el.getAttribute('aria-label') || el.alt || el.innerText || el.placeholder || '';
-        speak(text);
-    }
-
-    // Custom Tab navigation in Listening Mode
-    document.addEventListener('keydown', e => {
-        if (!inSelectionScreen && blindnessMode && e.key === 'Tab') {
-            e.preventDefault();
-            focusIndex = (focusIndex + 1) % focusableSequence.length;
-            focusableSequence[focusIndex].focus();
-            speakElement(focusableSequence[focusIndex]);
-        }
-    });
-
-    // Mouse fallback
-    btnReadable.addEventListener('click', () => {
-        blindnessMode = false;
-        inSelectionScreen = false;
-        overlay.remove();
-    });
-
-    btnListening.addEventListener('click', () => {
-        blindnessMode = true;
-        inSelectionScreen = false;
-        overlay.remove();
-        setupListeningSequence();
-        speak("Listening mode enabled. Use Tab to move forward and Enter to activate links or buttons.");
-    });
-
-    // Enter key activation in Listening Mode
-    document.addEventListener('keydown', e => {
-        if (!inSelectionScreen && blindnessMode && e.key === 'Enter') {
-            const el = focusableSequence[focusIndex];
-            if (el.tagName === 'A' || el.tagName === 'BUTTON') {
-                el.click();
-            }
-        }
-    });
-
-})();
-</script>
-
-
-
+    <script src="accessibility.js"></script>
 
 </body>
 </html>
