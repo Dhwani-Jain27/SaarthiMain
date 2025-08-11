@@ -6,6 +6,20 @@
 <title>Saarthi — Resources (Accessible Demo)</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+   <link rel="icon" href="favicon.ico.jpg">
+  <!-- SEO Metadata -->
+<title>Saarthi — Therapist & School Finder</title>
+<meta name="description" content="Find verified therapists and inclusive schools near you. Saarthi connects families to trusted care and education providers across India.">
+<meta name="keywords" content="Therapist finder, School finder, Special needs education, Occupational therapy, Speech therapy, Inclusive schools India">
+<meta name="author" content="Saarthi">
+
+<!-- Open Graph for social media -->
+<meta property="og:title" content="Saarthi — Therapist & School Finder">
+<meta property="og:description" content="Find verified therapists and inclusive schools near you.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:url" content="https://yoursite.com">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root {
   --primary: #1E88E5;
@@ -267,17 +281,17 @@ body.accessible .card {
 <section class="filters">
   <div class="chip-row">
     <button class="chip" data-age="all" aria-pressed="true">Show All</button>
-    <button class="chip" data-age="children">Children</button>
-    <button class="chip" data-age="teens">Teens</button>
-    <button class="chip" data-age="adults">Adults</button>
-    <button class="chip" data-age="elderly">Elderly</button>
+    <button class="chip" data-age="children">🧒 Children</button>
+    <button class="chip" data-age="teens">👩‍🎓Teens</button>
+    <button class="chip" data-age="adults">🧑‍💼Adults</button>
+    <button class="chip" data-age="elderly">👴Elderly</button>
   </div>
   <div class="chip-row">
     <button class="chip" data-type="all" aria-pressed="true">Show All</button>
-    <button class="chip" data-type="physical">Physical</button>
-    <button class="chip" data-type="intellectual">Intellectual</button>
-    <button class="chip" data-type="developmental">Developmental</button>
-    <button class="chip" data-type="sensory">Sensory</button>
+    <button class="chip" data-type="physical">♿ Physical</button>
+    <button class="chip" data-type="intellectual">🧠 Intellectual</button>
+    <button class="chip" data-type="developmental">🧩 Developmental</button>
+    <button class="chip" data-type="sensory">👂Sensory</button>
   </div>
   <div class="chip-row">
     <button id="clearFilters" class="chip clear-chip">Clear filters</button>
@@ -290,7 +304,7 @@ body.accessible .card {
 
 <script>
 const allResources = [
-  {id:"children-physical",age:"children",type:"physical",title:"Children — Resources for persons with physical disabilities",pdfUrl:"https://yellow-anthiathia-29.tiiny.site/CP.pdf",audioUrl:"https://jumpshare.com/share/OYAqHq6U9BsCDd0G3JrM"},
+  {id:"children-physical",age:"children",type:"physical",link rel="icon" href="favicon.ico.jpg", title:"Children — Resources for persons with physical disabilities",pdfUrl:"https://yellow-anthiathia-29.tiiny.site/CP.pdf",audioUrl:"https://jumpshare.com/share/OYAqHq6U9BsCDd0G3JrM"},
   {id:"children-intellectual",age:"children",type:"intellectual",title:"Children — Resources for persons with intellectual disabilities",pdfUrl:"https://yellow-anthiathia-29.tiiny.site/Ci.pdf",audioUrl:"https://jumpshare.com/share/OYAqHq6U9BsCDd0G3JrM"},
   {id:"children-developmental",age:"children",type:"developmental",title:"Children — Resources for persons with developmental disabilities",pdfUrl:"https://yellow-anthiathia-29.tiiny.site/Cd.pdf",audioUrl:"https://jumpshare.com/share/OYAqHq6U9BsCDd0G3JrM"},
   {id:"children-sensory",age:"children",type:"sensory",title:"Children — Resources for persons with sensory disabilities",pdfUrl:"https://yellow-anthiathia-29.tiiny.site/Cs.pdf",audioUrl:"https://jumpshare.com/share/OYAqHq6U9BsCDd0G3JrM"},
@@ -381,9 +395,9 @@ document.getElementById('clearFilters').addEventListener('click',()=>{setAgeFilt
 <footer style="background:#fff; padding:24px; border-top:1px solid #ddd; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; font-family:'Open Sans',sans-serif; font-size:0.95rem; color:#212121;">
   <div>
     <h3 style="font-family:'Montserrat',sans-serif; font-size:1.1rem; color:#1E88E5; margin:0 0 8px 0;">Organisation</h3>
-    <a href="about.html" style="text-decoration:none; color:#212121; margin-right:12px;">About Saarthi</a>
-    <a href="contact.html" style="text-decoration:none; color:#212121; margin-right:12px;">Contact Saarthi</a>
-    <a href="join.html" style="text-decoration:none; color:#1E88E5; font-weight:600;">Get Involved</a>
+    <a href="About us.html" style="text-decoration:none; color:#212121; margin-right:12px;">About Saarthi</a>
+    <a href="Contact us.html" style="text-decoration:none; color:#212121; margin-right:12px;">Contact Saarthi</a>
+    <a href="Careers.html" style="text-decoration:none; color:#1E88E5; font-weight:600;">Get Involved</a>
   </div>
   <div style="display:flex; gap:12px;">
     <a href="https://facebook.com" target="_blank" style="background:#1877F2; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.9rem; text-decoration:none;">FACEBOOK</a>
@@ -395,6 +409,7 @@ document.getElementById('clearFilters').addEventListener('click',()=>{setAgeFilt
 
 </body>
 </html>
+
 
 
 
