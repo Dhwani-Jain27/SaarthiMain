@@ -109,6 +109,14 @@ main{display:flex;gap:1rem;margin-top:100px;flex-wrap:wrap;padding:0 16px;max-wi
 
     /* Footer CTA */
     .footer-cta { background: hsl(var(--secondary) / 0.08); border-top: 1px solid hsl(var(--border)); padding: 34px 0; }
+ body.accessible{background:var(--accessible-bg);color:var(--accessible-text);}
+body.accessible header{background:var(--accessible-bg);}
+body.accessible nav a{color:var(--accessible-text)}
+body.accessible nav a[aria-current="page"]{background:var(--accent);color:var(--accent-text)}
+body.accessible .search-bar{background:var(--accessible-bg);color:var(--accessible-text);border-color:var(--accessible-text)}
+body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
+@media (max-width:768px){#sidePanel{position:static;width:100%;}}
+  
   </style>
 
   <script type="application/ld+json">
@@ -604,6 +612,7 @@ main{display:flex;gap:1rem;margin-top:100px;flex-wrap:wrap;padding:0 16px;max-wi
   </script>
 </body>
 </html>
+
 
 
 
