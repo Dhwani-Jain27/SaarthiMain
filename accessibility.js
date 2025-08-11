@@ -20,7 +20,8 @@
 
     function onFocus(e) {
         if (!screenReaderEnabled) return;
-        speak(getElementDescription(e.target));
+        const desc = getElementDescription(e.target);
+        if (desc) speak(desc);
     }
 
     function onKeyDown(e) {
@@ -32,11 +33,11 @@
     }
 
     function enableFocusForAll() {
-        const allElements = document.querySelectorAll('*');
-        allElements.forEach(el => {
-            const hasClick = el.onclick || el.getAttribute('role') === 'button';
+        const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div, img, a, button');
+        elements.forEach(el => {
+            const hasText = getElementDescription(el);
             const isNaturallyFocusable = el.tabIndex >= 0;
-            if (hasClick && !isNaturallyFocusable) {
+            if (hasText && !isNaturallyFocusable) {
                 el.tabIndex = 0;
                 addedTabIndexes.push(el);
             }
@@ -44,9 +45,7 @@
     }
 
     function removeAddedFocus() {
-        addedTabIndexes.forEach(el => {
-            el.removeAttribute('tabindex');
-        });
+        addedTabIndexes.forEach(el => el.removeAttribute('tabindex'));
         addedTabIndexes = [];
     }
 
