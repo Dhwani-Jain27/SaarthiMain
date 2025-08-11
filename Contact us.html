@@ -40,6 +40,26 @@
     #map {width:100%;height:300px;border-radius:6px;margin-top:1rem;}
     @media (max-width:768px) {.container{flex-direction:column;}}
   </style>
+  <style>
+    :root{
+      --primary:#1E88E5;
+      --secondary:#4DB6AC;
+      --accent:#FFEB3B;
+      --bg:#F5F5F5;
+      --text:#212121;
+    }
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'Open Sans',sans-serif;}
+    header{position:fixed;top:0;left:0;right:0;background:white;box-shadow:0 2px 6px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;padding:12px 18px;z-index:1000}
+    nav a{padding:8px 10px;border-radius:6px;text-decoration:none;color:var(--text);font-weight:600}
+    main{max-width:1100px;margin:110px auto 60px;padding:18px}
+    .container {display:flex;flex-wrap:wrap;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);border-radius:8px;overflow:hidden;}
+    .contact-info, .contact-form {flex:1;padding:2rem;min-width:300px;}
+    form input, form textarea {width:100%;padding:0.75rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:4px;}
+    form button {background-color:var(--primary);color:white;border:none;padding:0.75rem 1.5rem;border-radius:4px;cursor:pointer;}
+    form button:hover {background-color:#1565c0;}
+    #map {width:100%;height:300px;border-radius:6px;margin-top:1rem;}
+    @media (max-width:768px) {.container{flex-direction:column;}}
+  </style>
 
 <link rel="stylesheet" href="commonstyles.css">
 <script src="header.js" defer></script>
@@ -47,6 +67,31 @@
 
 </head>
 <body>
+
+
+
+<header>
+  <div class="brand">Saarthi</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About us.html" >About us</a>
+    <a href="finder acha wala.html">School &amp; Therapist Finder</a>
+    <a href="r6.html" >Resources</a>
+    <a href="Community forum.html">Community</a>
+    <a href="Careers.html"> Career</a>
+    <a href="Contact us.html"> Contact us</a>
+  </nav>
+  <div class="controls">
+    <button id="decreaseFont" class="ctrl-btn">A-</button>
+    <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
+    <button id="increaseFont" class="ctrl-btn">A+</button>
+    <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
+     <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+  Screen Reader
+</button>
+
+  </div>
+</header>
 
 
 
@@ -155,5 +200,6 @@
   
 </body>
 </html>
+
 
 
