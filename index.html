@@ -14,20 +14,29 @@
     <link rel="icon" href="favicon.ico.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --primary-bg: #f6f9fa;
-            --header-bg: #ffffff;
-            --primary-accent: #5457e2;
-            --primary-text: #232444;
-            --card-bg: #ffffff;
-            --footer-bg: #f0f2f5;
-            --button-primary-bg: #5457e2;
-            --button-primary-text: #fff;
-            --button-secondary-bg: #fff;
-            --button-secondary-text: #232444;
-            --card-shadow: 0 4px 12px rgba(84,87,226,0.07);
-            --faq-border: #e0e3ea;
-        }
+       :root {
+      /* Brand palette (HSL for easy theming) */
+      --primary: 210 80% 45%;        /* Calm Blue */
+      --primary-contrast: 0 0% 100%; /* White */
+      --secondary: 170 60% 42%;      /* Soft Teal */
+      --accent: 45 95% 55%;          /* Warm Yellow */
+      --muted: 220 10% 45%;
+      --bg: 210 20% 98%;
+      --card: 0 0% 100%;
+      --border: 210 20% 90%;
+      --ring: var(--primary);
+
+      --text: 220 22% 12%;
+      --text-muted: 220 12% 40%;
+
+      --radius: 14px;
+
+      --shadow-1: 0 10px 30px -10px hsl(var(--primary) / 0.25);
+      --shadow-2: 0 8px 24px -12px hsl(var(--text) / 0.12);
+
+      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 70% 55%));
+    }
+
         * {
             margin: 0;
             padding: 0;
@@ -252,6 +261,7 @@
         }
        
     </style>
+    
 <link rel="stylesheet" href="commonstyles.css">
 <script src="header.js" defer></script>
 
