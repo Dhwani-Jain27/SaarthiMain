@@ -89,8 +89,8 @@ body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
     <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
   </div>
 
-<button id="accessibilityToggle" onclick="toggleAccessibility()" aria-label="Toggle screen reader mode">
-    ♿ Accessibility
+ <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+  Screen Reader
 </button>
 
 <!-- Load the CSS & JS for accessibility -->
@@ -177,8 +177,9 @@ window.onload=()=>{
 </script>
 </body>
   
-
+<script src="accessibility.js"></script>
 </html>
+
 
 
 
