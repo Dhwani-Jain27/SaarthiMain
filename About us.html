@@ -133,22 +133,51 @@
     }
   }
   </script>
+body.accessible {
+  background: var(--accessible-bg);
+  color: var(--accessible-text);
+}
+body.accessible header {
+  background: var(--accessible-bg);
+}
+body.accessible nav a {
+  color: var(--accessible-text);
+}
+body.accessible nav a[aria-current="page"] {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+body.accessible .card {
+  background: #3a3a3a;
+  color: var(--accessible-text);
+}
+</style>
 </head>
 <body>
-  <!-- Skip to main content link for accessibility -->
-  <a href="#main" class="subtle" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
 
-  <header role="banner">
-    <div class="container nav">
-      <!-- Brand logo/name linking to the homepage -->
-      <a class="brand" href="saarthi-onepage.html" aria-label="Go to Home">Saarthi</a>
-      <!-- Navigation links -->
-      <nav class="nav-links" aria-label="Primary">
-        <a href="saarthi-onepage.html">Home</a>
-        <a class="btn btn-primary" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="brand">Saarthi</div>
+  <nav>
+    <a href="index.html">"Home</a>
+    <a href="About us.html">About us</a>
+    <a href="finder acha wala.html">School &amp; Therapist Finder</a>
+    <a href="r6.html" aria-current="page">Resources</a>
+    <a href="Community forum.html">Community</a>
+    <a href="Careers.html">Career</a>
+    <a href="Contact us.html">Contact us</a>
+  </nav>
+  <div class="controls">
+    <button id="decreaseFont" class="ctrl-btn">A-</button>
+    <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
+    <button id="increaseFont" class="ctrl-btn">A+</button>
+    <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
+   <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+  Screen Reader
+</button>
+
+
+  </div>
+</header>
 
   <!-- Hero section with main title and brief description -->
   <section class="hero" aria-labelledby="page-title">
@@ -313,3 +342,4 @@
   </script>
 </body>
 </html>
+
