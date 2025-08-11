@@ -107,8 +107,23 @@ body.accessible .card {background:#3a3a3a; color:var(--accessible-text);}
 <script>
 const allResources = [
   {id:"children-physical",age:"children",type:"physical",title:"Children — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
-  {id:"children-intellectual",age:"children",type:"intellectual",title:"Children — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"}
+  {id:"children-intellectual",age:"children",type:"intellectual",title:"Children — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"children-developmental",age:"children",type:"developmental",title:"Children — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"children-sensory",age:"children",type:"sensory",title:"Children — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"teens-physical",age:"teens",type:"physical",title:"Teens — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"teens-intellectual",age:"teens",type:"intellectual",title:"Teens — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"teens-developmental",age:"teens",type:"developmental",title:"Teens — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"teens-sensory",age:"teens",type:"sensory",title:"Teens — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"adults-physical",age:"adults",type:"physical",title:"Adults — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"adults-intellectual",age:"adults",type:"intellectual",title:"Adults — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"adults-developmental",age:"adults",type:"developmental",title:"Adults — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"adults-sensory",age:"adults",type:"sensory",title:"Adults — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"elderly-physical",age:"elderly",type:"physical",title:"Elderly — Resources for persons with physical disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"elderly-intellectual",age:"elderly",type:"intellectual",title:"Elderly — Resources for persons with intellectual disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"elderly-developmental",age:"elderly",type:"developmental",title:"Elderly — Resources for persons with developmental disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"},
+  {id:"elderly-sensory",age:"elderly",type:"sensory",title:"Elderly — Resources for persons with sensory disabilities",pdfUrl:"C+P.pdf",audioUrl:"relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"}
 ];
+
 function capitalize(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function renderGrid(ageFilter='all',typeFilter='all'){
@@ -193,3 +208,4 @@ if (localStorage.getItem('saarthi-contrast') === 'on') {
 </footer>
 </body>
 </html>
+
