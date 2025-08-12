@@ -70,11 +70,14 @@
     }
     .btn:hover { transform: translateY(-1px); }
 
-    .hero {
-      position: relative; overflow: hidden; isolation: isolate;
-      background: radial-gradient(80% 60% at 50% 0%, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
-      border-bottom: 1px solid hsl(var(--border));
-    }
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #1E88E5, #4DB6AC); /* Example gradient */
+  border-bottom: 1px solid hsl(var(--border));
+}
+
     .hero-inner { padding: 4rem 0 3rem; text-align: center; }
     .eyebrow { display: inline-block; padding: .25rem .6rem; border-radius: 999px; border: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); font-size: .85rem; margin-bottom: .75rem; }
     .hero h1 { font-size: clamp(1.8rem, 4.2vw, 3rem); line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.02em; }
@@ -358,6 +361,7 @@
   </script>
 </body>
 </html>
+
 
 
 
