@@ -91,17 +91,6 @@ body.accessible nav a[aria-current="page"] {
   background: var(--accent);
   color: var(--accent-text);
 }
-@media (max-width: 768px) {
-  body {
-    font-size: 1rem;
-    padding: 10px;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  nav ul {
-    flex-direction: column;
-  }
-}
+
+
 
