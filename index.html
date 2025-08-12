@@ -349,7 +349,7 @@
     <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
     <button id="increaseFont" class="ctrl-btn">A+</button>
     <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
-    <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+       <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
   Screen Reader
 </button>
 
@@ -361,8 +361,8 @@
         <h2>An Inclusive Digital Ecosystem</h2>
         <p>Connecting and empowering individuals with special needs, their families, and the community.</p>
         <div class="buttons">
-            <button class="btn-primary"><font bgcolor="#F5F5F5">Learn More</font></button>
-            <button class="btn-secondary"><font bgcolor="#F5F5F5">Join Us</font></button>
+            <button class="btn-primary">Learn More</button>
+            <button class="btn-secondary">Join Us</button>
         </div>
     </section>
 
@@ -463,6 +463,79 @@
         }, { threshold: 0.2 });
         fadeEls.forEach(el => observer.observe(el));
 
+        // --- Bottom Slider Logic ---
+        const bottomSlider = document.getElementById('bottomSlider');
+        const bottomDots = document.querySelectorAll('.bottom-dot');
+        let bottomIndex = 0;
+        const totalBottomSlides = bottomDots.length;
+        let bottomInterval;
+        let isAnimating = false;
+
+        function showBottomSlide(index) {
+          if (isAnimating) return; // prevent double triggers
+          isAnimating = true;
+
+          if(index >= totalBottomSlides) index = 0;
+          if(index < 0) index = totalBottomSlides - 1;
+          bottomIndex = index;
+          bottomSlider.style.transform = `translateX(-${index * 100}%)`;
+          bottomDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+          setTimeout(() => { isAnimating = false; }, 800);
+        }
+
+        function nextBottomSlide() {
+          showBottomSlide(bottomIndex + 1);
+        }
+
+        function startBottomAutoSlide() {
+          clearInterval(bottomInterval);
+          bottomInterval = setInterval(nextBottomSlide, 7000);
+        }
+
+        bottomDots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            let index = parseInt(dot.getAttribute('data-index'));
+            showBottomSlide(index);
+            startBottomAutoSlide();
+          });
+        });
+
+        // Init slider
+        showBottomSlide(0);
+        startBottomAutoSlide();
+    </script>
+<!-- Mode Selection + Guided Listening Mode -->
+<script>
+(function() {
+    let blindnessMode = false;
+    let speechUnlocked = false;
+    let inSelectionScreen = true;
+    let focusIndex = 0;
+    let focusableSequence = [];
+
+    function styleButton(btn, bg, text = '#fff') {
+        btn.style.backgroundColor = bg;
+        btn.style.color = text;
+        btn.style.padding = '15px 30px';
+        btn.style.margin = '10px';
+        btn.style.fontSize = '1.2rem';
+        btn.style.border = 'none';
+        btn.style.borderRadius = '8px';
+        btn.style.cursor = 'pointer';
+    }
+
+    function speak(text) {
+        if (!text.trim()) return;
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.rate = 1;
+            utter.pitch = 1;
+            speechSynthesis.speak(utter);
+        }
+    }
 
     // Overlay
     const overlay = document.createElement('div');
