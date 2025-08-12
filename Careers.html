@@ -235,16 +235,33 @@ header.hero .hero-inner h1 { color: hsl(var(--text)) !important; }
 
 
 
-<body>
+<body style="margin: 0; font-family: Arial, sans-serif; text-align: center;">
 
-      <span class="badge" aria-label="Accessible by design"><font align="center" color="#1E88E5">✨ Community‑first. Accessible by design.</font></span>
-      <h1>Saarthi – Career & Skill Hub for Caregivers</h1>
-      <p class="lead">Join Saarthi and support individuals with special needs. Create your profile, verify skills, and connect with local opportunities.</p>
-      <div style="display:flex; gap:10px; justify-content:center;">
-        <button id="startOnboardingBtn" class="btn btn-lg btn-hero" aria-label="Start Onboarding"><font color="#1E88E5">Start Onboarding</font></button>
-        <a href="#how" class="btn btn-lg btn-cta" aria-label="How it works">How it works</a>
-      </div>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 20px;">
+    
+    <span class="badge" aria-label="Accessible by design" 
+          style="color: #1E88E5; font-size: 1rem; font-weight: bold;">
+      ✨ Community-first. Accessible by design.
+    </span>
+
+    <h1 style="margin: 0;">Saarthi – Career & Skill Hub for Caregivers</h1>
+
+    <p class="lead" style="max-width: 600px;">
+      Join Saarthi and support individuals with special needs. Create your profile, verify skills, 
+      and connect with local opportunities.
+    </p>
+
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button id="startOnboardingBtn" class="btn btn-lg btn-hero" aria-label="Start Onboarding" 
+              style="color: #1E88E5;">
+        Start Onboarding
+      </button>
+      <a href="#how" class="btn btn-lg btn-cta" aria-label="How it works">
+        How it works
+      </a>
     </div>
+
+  </div>
   
   <main id="main" tabindex="-1">
     <!-- How it works -->
@@ -678,6 +695,7 @@ header.hero .hero-inner h1 { color: hsl(var(--text)) !important; }
   </script>
 </body>
 </html>
+
 
 
 
