@@ -86,6 +86,20 @@ main{display:flex;gap:1rem;margin-top:100px;flex-wrap:wrap;padding:0 16px;max-wi
     section { padding: 48px 0; }
     h2 { font-family: Montserrat, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.01em; font-size: clamp(1.4rem, 1.8vw + 1rem, 2rem); margin: 0 0 18px; }
     .grid { display: grid; gap: 16px; }
+    @media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
+
     @media (min-width: 880px) { .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); } .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 
     .card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: var(--radius); box-shadow: var(--shadow-2); padding: 18px; }
@@ -683,6 +697,7 @@ header.hero .hero-inner h1 { color: hsl(var(--text)) !important; }
 
 </body>
 </html>
+
 
 
 
