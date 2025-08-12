@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saarthi Community Forum - Support for Caregivers & Families</title>
+    <meta name="description" content="Join Saarthi's inclusive community forum for caregivers, families, and professionals supporting people with disabilities. Share experiences, get advice, and find support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Base colors */
+            --background: hsl(0, 0%, 96.1%);
+            --foreground: hsl(0, 0%, 13.1%);
+            
+            /* Card system */
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(0, 0%, 13.1%);
+            --card-hover: hsl(0, 0%, 98%);
+            
+            /* Primary brand colors - Saarthi blue */
+            --primary: hsl(207, 69%, 52%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --primary-hover: hsl(207, 69%, 47%);
+            
+            /* Secondary - Teal accent */
+            --secondary: hsl(174, 42%, 52%);
+            --secondary-foreground: hsl(0, 0%, 13.1%);
+            --secondary-hover: hsl(174, 42%, 47%);
+            
+            /* Accent - Warning yellow */
+            --accent: hsl(55, 91%, 59%);
+            --accent-foreground: hsl(0, 0%, 13.1%);
+            
+            /* CTA Purple */
+            --cta: hsl(276, 55%, 40%);
+            --cta-foreground: hsl(0, 0%, 100%);
+            
+            /* Text colors */
+            --muted: hsl(215, 13.8%, 42.7%);
+            --muted-foreground: hsl(215, 16.3%, 46.9%);
+            
+            /* Interactive states */
+            --border: hsl(214.3, 31.8%, 91.4%);
+            --input: hsl(214.3, 31.8%, 91.4%);
+            --ring: hsl(207, 69%, 52%);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(207, 69%, 52%), hsl(174, 42%, 52%));
+            --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(0, 0%, 98%));
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 hsl(0, 0%, 0%, 0.05);
+            --shadow-card: 0 4px 16px 0 hsl(0, 0%, 0%, 0.08);
+            --shadow-lg: 0 10px 30px -10px hsl(207, 69%, 52%, 0.2);
+            
+            --radius: 0.75rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+            overflow-x: hidden;
+        }
+        
+        .forum-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            width: 256px;
+            background: var(--card);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            overflow-y: auto;
+            padding: 24px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        
+        .brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 32px;
+        }
+        
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        
+        .nav-section h3 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            margin-bottom: 12px;
+            padding: 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            color: var(--muted-foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+        
+        .nav-item .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 12px;
+        }
+        
+        .nav-item .badge {
+            margin-left: auto;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 256px;
+            margin-right: 320px;
+            padding: 24px;
+        }
+        
+        .hero-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .hero-content {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 400px;
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            color: var(--muted-foreground);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-1px);
+        }
+        
+        .btn-gradient {
+            background: var(--gradient-primary);
+            color: var(--primary-foreground);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-gradient:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-1px);
+        }
+        
+        .stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-width: 120px;
+        }
+        
+        .stat-card {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted-foreground);
+            text-transform: capitalize;
+        }
+        
+        /* Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .topic-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .topic-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        .topic-header {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .topic-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .topic-icon.primary { background: var(--primary); }
+        .topic-icon.secondary { background: var(--secondary); }
+        .topic-icon.cta { background: var(--cta); }
+        .topic-icon.accent { background: var(--accent); }
+        
+        .topic-icon::after {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .topic-content h3 {
+            font-weight: 600;
+            color: var(--card-foreground);
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .topic-card:hover .topic-content h3 {
+            color: var(--primary);
+        }
+        
+        .topic-content p {
+            font-size: 14px;
+            color: var(--muted-foreground);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .topic-badge {
+            background: var(--secondary);
+            color: var(--secondary-foreground);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Discussion Section */
+        .discussion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .discussion-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--card-foreground);
+        }
+        
+        .discussion-controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 8px 12px 8px 36px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--card-foreground);
+            width: 250px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: var(--muted-foreground);
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+        
+        .btn-outline {
+            background: var(--card);
+            color: var(--card-foreground);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-outline:hover {
+            background: var(--card-hover);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--muted-foreground);
+        }
+        
+        .btn-ghost:hover, .btn-ghost.active {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+        
+        /* Post Cards */
+        .post-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .post-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .post-header {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .post-author {
+            font-weight: 600;
+            color: var(--card-foreground);
+        }
+        
+        .post-time {
+            color: var(--muted-foreground);
+            font-size: 14px;
+        }
+        
+        .best-answer-badge {
+            background: var(--secondary);
+            color: var(--secondary-foreground);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .post-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .post-content {
+            color: var(--card-foreground);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .post-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            background: none;
+            border: none;
+            color: var(--muted-foreground);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .post-action:hover {
+            color: var(--primary);
+            background: var(--card-hover);
+        }
+        
+        .post-action.liked {
+            color: var(--primary);
+        }
+        
+        .post-action .icon {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Right Sidebar */
+        .right-sidebar {
+            width: 320px;
+            padding: 24px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        
+        .welcome-section {
+            text-align: center;
+        }
+        
+        .user-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+        
+        .user-avatar-inner {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: var(--card-foreground);
+            margin-bottom: 4px;
+        }
+        
+        .user-title {
+            font-size: 14px;
+            color: var(--muted-foreground);
+            margin-bottom: 12px;
+        }
+        
+        .user-role-badge {
+            background: var(--cta);
+            color: var(--cta-foreground);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .section-header .icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .section-header h3 {
+            font-weight: 600;
+            color: var(--card-foreground);
+        }
+        
+        .leaderboard-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .tab-button {
+            padding: 4px 8px;
+            background: none;
+            border: none;
+            color: var(--muted-foreground);
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .rank-number {
+            width: 24px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted-foreground);
+        }
+        
+        .leaderboard-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--primary-foreground);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .leaderboard-name {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--card-foreground);
+        }
+        
+        .leaderboard-points {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .trending-item {
+            font-size: 14px;
+            color: var(--muted-foreground);
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .trending-item:hover {
+            color: var(--primary);
+        }
+        
+        .event-item {
+            padding: 12px;
+            background: var(--card-hover);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .event-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--card-foreground);
+            margin-bottom: 4px;
+        }
+        
+        .event-time {
+            font-size: 12px;
+            color: var(--muted-foreground);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--card-foreground);
+        }
+        
+        .modal-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--card-hover);
+            border-radius: 6px;
+            padding: 4px;
+            margin-bottom: 24px;
+        }
+        
+        .modal-tab {
+            padding: 8px 16px;
+            background: none;
+            border: none;
+            border-radius: 4px;
+            color: var(--muted-foreground);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .modal-tab.active {
+            background: var(--card);
+            color: var(--card-foreground);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--card-foreground);
+            margin-bottom: 6px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--card-foreground);
+            font-size: 14px;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+        }
+        
+        .modal-footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted-foreground);
+            margin-top: 16px;
+        }
+        
+        /* Comment Section */
+        .comment-box {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+        
+        .comment-box.active {
+            display: block;
+        }
+        
+        .comment-input-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .comment-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card);
+            color: var(--card-foreground);
+            font-size: 14px;
+        }
+        
+        .comment {
+            font-size: 14px;
+            color: var(--card-foreground);
+            background: var(--card-hover);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .right-sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                min-width: auto;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .discussion-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+        }
+        
+        /* Icons - Simple CSS icons */
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: currentColor;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+        
+        .icon-home { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E"); }
+        .icon-message { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'/%3E%3C/svg%3E"); }
+        .icon-bell { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'/%3E%3C/svg%3E"); }
+        .icon-users { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a4 4 0 11-8 0 4 4 0 018 0z'/%3E%3C/svg%3E"); }
+        .icon-user { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'/%3E%3C/svg%3E"); }
+        .icon-book { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'/%3E%3C/svg%3E"); }
+        .icon-calendar { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3E%3C/svg%3E"); }
+        .icon-heart { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'/%3E%3C/svg%3E"); }
+        .icon-heart.filled { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z'/%3E%3C/svg%3E"); }
+        .icon-search { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E"); }
+        .icon-filter { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z'/%3E%3C/svg%3E"); }
+        .icon-more { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z'/%3E%3C/svg%3E"); }
+        .icon-crown { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 3l4 6 3-6 3 6 4-6v13a2 2 0 01-2 2H7a2 2 0 01-2-2V3z'/%3E%3C/svg%3E"); }
+        .icon-trending { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'/%3E%3C/svg%3E"); }
+        .icon-award { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'/%3E%3C/svg%3E"); }
+    </style>
+
+<link rel="stylesheet" href="commonstyles.css">
+<script src="header.js" defer></script>
+
+
+</head>
+<body>
+
+
+
+<header>
+  <div class="brand">Saarthi</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About us.html" >About us</a>
+    <a href="finder acha wala.html">School &amp; Therapist Finder</a>
+    <a href="r6.html" >Resources</a>
+    <a href="Community forum.html" aria-current="page">Community</a>
+    <a href="Careers.html"> Career</a>
+    <a href="Contact us.html"> Contact us</a>
+  </nav>
+  <div class="controls">
+    <button id="decreaseFont" class="ctrl-btn">A-</button>
+    <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
+    <button id="increaseFont" class="ctrl-btn">A+</button>
+    <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
+     <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
+  Screen Reader
+</button>
+
+  </div>
+</header>
+
+
+
+
+
+
+    <div class="forum-container">
+        <!-- Left Sidebar -->
+        <nav class="sidebar">
+            <div class="brand">Saarthi</div>
+            
+            <div class="nav-section">
+                <button class="nav-item active" data-section="explore">
+                    <span class="icon icon-home"></span>
+                    Explore
+                </button>
+                <button class="nav-item" data-section="feed">
+                    <span class="icon icon-message"></span>
+                    Feed
+                </button>
+                <button class="nav-item" data-section="notifications">
+                    <span class="icon icon-bell"></span>
+                    Notifications
+                    <span class="badge">10</span>
+                </button>
+                <button class="nav-item" data-section="members">
+                    <span class="icon icon-users"></span>
+                    Members
+                </button>
+                <button class="nav-item" data-section="profile">
+                    <span class="icon icon-user"></span>
+                    My profile
+                </button>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Discussions</h3>
+                <button class="nav-item" data-section="discussions">
+                    <span class="icon icon-message"></span>
+                    Discussions
+                </button>
+                <button class="nav-item" data-section="articles">
+                    <span class="icon icon-book"></span>
+                    Articles
+                </button>
+                <button class="nav-item" data-section="events">
+                    <span class="icon icon-calendar"></span>
+                    Events
+                </button>
+                <button class="nav-item" data-section="groups">
+                    <span class="icon icon-users"></span>
+                    Groups
+                </button>
+                <button class="nav-item" data-section="wishlist">
+                    <span class="icon icon-heart"></span>
+                    Wishlist
+                </button>
+                <button class="nav-item" data-section="help">
+                    <span class="icon icon-book"></span>
+                    Help center
+                </button>
+                <button class="nav-item" data-section="resources">
+                    <span class="icon icon-book"></span>
+                    Resources
+                </button>
+                <button class="nav-item" data-section="roadmap">
+                    <span class="icon icon-book"></span>
+                    Roadmap
+                </button>
+                <button class="nav-item" data-section="changelog">
+                    <span class="icon icon-book"></span>
+                    Changelog
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <div class="hero-card">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Welcome to Saarthi Forum</h1>
+                        <p class="hero-description">
+                            A safe, moderated space for caregivers, families, and professionals to share experiences and support each other in caring for people with disabilities.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn btn-gradient" onclick="openLoginModal('join')">
+                                Join Forum
+                            </button>
+                            <button class="btn btn-primary" onclick="openLoginModal('create')">
+                                Create Discussion
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">12k+</div>
+                            <div class="stat-label">Members</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3.2k</div>
+                            <div class="stat-label">Discussions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8.5k</div>
+                            <div class="stat-label">Answers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">245</div>
+                            <div class="stat-label">Articles</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Topics Grid -->
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon primary"></div>
+                        <div class="topic-content">
+                            <h3>Home Care</h3>
+                            <p>Tips for daily routines and accessibility at home.</p>
+                            <span class="topic-badge">342 discussions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon secondary"></div>
+                        <div class="topic-content">
+                            <h3>Education & Learning</h3>
+                            <p>Inclusive schooling and learning aids.</p>
+                            <span class="topic-badge">189 discussions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon cta"></div>
+                        <div class="topic-content">
+                            <h3>Adaptive Technology</h3>
+                            <p>Tools and devices to enhance independence.</p>
+                            <span class="topic-badge">156 discussions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon accent"></div>
+                        <div class="topic-content">
+                            <h3>Family Support</h3>
+                            <p>Emotional support and coping strategies for families.</p>
+                            <span class="topic-badge">298 discussions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discussion Section -->
+            <div class="discussion-header">
+                <div>
+                    <h2 class="discussion-title">Recent Discussions</h2>
+                    <div class="discussion-controls">
+                        <button class="btn btn-ghost btn-small active">Top comments</button>
+                        <button class="btn btn-ghost btn-small">Newest first</button>
+                    </div>
+                </div>
+                
+                <div class="discussion-controls">
+                    <div class="search-box">
+                        <span class="icon icon-search search-icon"></span>
+                        <input type="text" placeholder="Search discussions..." class="search-input">
+                    </div>
+                    <button class="btn btn-outline btn-small">
+                        <span class="icon icon-filter"></span>
+                        Filter
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Posts -->
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="avatar">KH</div>
+                    <div style="flex: 1;">
+                        <div class="post-meta">
+                            <span class="post-author">KeertHi</span>
+                            <span class="best-answer-badge">
+                                <span class="icon icon-award"></span>
+                                Best Answer
+                            </span>
+                            <span class="post-time">• 4 days ago</span>
+                        </div>
+                        <h3 class="post-title">Customer Success: What It Means & Why It Matters</h3>
+                        <p class="post-content">
+                            Engage with your potential existing customers by regularly posting updates, asking for feedback, and addressing any concerns they may have. Foster a positive culture by moderating discussions and addressing any negative behavior.
+                        </p>
+                        <div class="post-actions">
+                            <button class="post-action like-btn" data-post="1">
+                                <span class="icon icon-heart"></span>
+                                <span class="like-count">23</span>
+                            </button>
+                            <button class="post-action comment-btn" data-post="1">
+                                <span class="icon icon-message"></span>
+                                0
+                            </button>
+                            <button class="post-action">
+                                <span class="icon icon-more"></span>
+                            </button>
+                        </div>
+                        <div class="comment-box" id="comments-1">
+                            <div class="comment-input-row">
+                                <input type="text" placeholder="Write a comment..." class="comment-input">
+                                <button class="btn btn-primary btn-small submit-comment">Post</button>
+                            </div>
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="avatar">AG</div>
+                    <div style="flex: 1;">
+                        <div class="post-meta">
+                            <span class="post-author">Angel</span>
+                            <span class="post-time">• 5 days ago</span>
+                        </div>
+                        <h3 class="post-title">How to build a community for your SaaS? 🙌</h3>
+                        <p class="post-content">
+                            We started out building our platform by working with entrepreneurs who needed help developing their communication and emotional skills, which is exactly what our community forum provides.
+                        </p>
+                        <div class="post-actions">
+                            <button class="post-action like-btn" data-post="2">
+                                <span class="icon icon-heart"></span>
+                                <span class="like-count">48</span>
+                            </button>
+                            <button class="post-action comment-btn" data-post="2">
+                                <span class="icon icon-message"></span>
+                                21
+                            </button>
+                            <button class="post-action">
+                                <span class="icon icon-more"></span>
+                            </button>
+                        </div>
+                        <div class="comment-box" id="comments-2">
+                            <div class="comment-input-row">
+                                <input type="text" placeholder="Write a comment..." class="comment-input">
+                                <button class="btn btn-primary btn-small submit-comment">Post</button>
+                            </div>
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-card">
+                <div class="post-header">
+                    <div class="avatar">RI</div>
+                    <div style="flex: 1;">
+                        <div class="post-meta">
+                            <span class="post-author">Rina</span>
+                            <span class="post-time">• 2 days ago</span>
+                        </div>
+                        <h3 class="post-title">How to support children with sensory needs?</h3>
+                        <p class="post-content">
+                            Looking for strategies and tools for home environments that can help children with sensory processing challenges feel more comfortable and regulated.
+                        </p>
+                        <div class="post-actions">
+                            <button class="post-action like-btn" data-post="3">
+                                <span class="icon icon-heart"></span>
+                                <span class="like-count">156</span>
+                            </button>
+                            <button class="post-action comment-btn" data-post="3">
+                                <span class="icon icon-message"></span>
+                                12
+                            </button>
+                            <button class="post-action">
+                                <span class="icon icon-more"></span>
+                            </button>
+                        </div>
+                        <div class="comment-box" id="comments-3">
+                            <div class="comment-input-row">
+                                <input type="text" placeholder="Write a comment..." class="comment-input">
+                                <button class="btn btn-primary btn-small submit-comment">Post</button>
+                            </div>
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- Welcome Card -->
+            <div class="sidebar-card">
+                <div class="welcome-section">
+                    <div class="user-avatar-large">
+                        <div class="user-avatar-inner">SA</div>
+                    </div>
+                    <h3 class="user-name">Welcome back</h3>
+                    <p class="user-title">Sohel Alavi</p>
+                    <span class="user-role-badge">Chief Product Officer @ Saarthi</span>
+                    <button class="btn btn-outline btn-small" style="width: 100%;">Admin</button>
+                </div>
+            </div>
+            
+            <!-- Leaderboard -->
+            <div class="sidebar-card">
+                <div class="section-header">
+                    <span class="icon icon-crown"></span>
+                    <h3>Leaderboard</h3>
+                </div>
+                
+                <div class="leaderboard-tabs">
+                    <button class="tab-button active">This Week</button>
+                    <button class="tab-button">This Month</button>
+                    <button class="tab-button">All Time</button>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">1</div>
+                    <div class="leaderboard-avatar">CL</div>
+                    <div class="leaderboard-name">Claudia</div>
+                    <div class="leaderboard-points">550</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">2</div>
+                    <div class="leaderboard-avatar">YL</div>
+                    <div class="leaderboard-name">Yew Li</div>
+                    <div class="leaderboard-points">484</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">3</div>
+                    <div class="leaderboard-avatar">AD</div>
+                    <div class="leaderboard-name">Adrian</div>
+                    <div class="leaderboard-points">421</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">4</div>
+                    <div class="leaderboard-avatar">SA</div>
+                    <div class="leaderboard-name">Sohel Alavi</div>
+                    <div class="leaderboard-points">384</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">5</div>
+                    <div class="leaderboard-avatar">KA</div>
+                    <div class="leaderboard-name">Kamran</div>
+                    <div class="leaderboard-points">342</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">6</div>
+                    <div class="leaderboard-avatar">NI</div>
+                    <div class="leaderboard-name">Nick</div>
+                    <div class="leaderboard-points">298</div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank-number">7</div>
+                    <div class="leaderboard-avatar">JA</div>
+                    <div class="leaderboard-name">Jason</div>
+                    <div class="leaderboard-points">276</div>
+                </div>
+            </div>
+            
+            <!-- Trending Topics -->
+            <div class="sidebar-card">
+                <div class="section-header">
+                    <span class="icon icon-trending"></span>
+                    <h3>Trending Topics</h3>
+                </div>
+                
+                <div class="trending-item">#homecare</div>
+                <div class="trending-item">#adaptivetechnology</div>
+                <div class="trending-item">#educationalresources</div>
+                <div class="trending-item">#familysupport</div>
+                <div class="trending-item">#accessibility</div>
+            </div>
+            
+            <!-- Upcoming Events -->
+            <div class="sidebar-card">
+                <div class="section-header">
+                    <span class="icon icon-calendar"></span>
+                    <h3>Upcoming Events</h3>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-title">Weekly Caregiver Support Group</div>
+                    <div class="event-time">Tomorrow, 7:00 PM</div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-title">Adaptive Tech Workshop</div>
+                    <div class="event-time">Friday, 3:00 PM</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Join Saarthi Forum</h2>
+            </div>
+            
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login">Login</button>
+                <button class="modal-tab" data-tab="signup">Sign Up</button>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-group" id="nameGroup" style="display: none;">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your full name">
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span id="submitText">Login to Forum</span>
+                </button>
+            </form>
+            
+            <div class="modal-footer">
+                By continuing, you agree to support our inclusive community dedicated to helping caregivers and families.
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation functionality
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+        
+        // Like functionality
+        const likeButtons = document.querySelectorAll('.like-btn');
+        likeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const heartIcon = button.querySelector('.icon-heart');
+                const likeCount = button.querySelector('.like-count');
+                const isLiked = button.classList.contains('liked');
+                
+                if (isLiked) {
+                    button.classList.remove('liked');
+                    heartIcon.classList.remove('filled');
+                    likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                } else {
+                    button.classList.add('liked');
+                    heartIcon.classList.add('filled');
+                    likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                }
+            });
+        });
+        
+        // Comment functionality
+        const commentButtons = document.querySelectorAll('.comment-btn');
+        commentButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const postId = button.getAttribute('data-post');
+                const commentBox = document.getElementById(`comments-${postId}`);
+                commentBox.classList.toggle('active');
+            });
+        });
+        
+        // Submit comment functionality
+        const submitButtons = document.querySelectorAll('.submit-comment');
+        submitButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const commentInput = button.previousElementSibling;
+                const commentText = commentInput.value.trim();
+                
+                if (commentText) {
+                    const commentsList = button.parentElement.nextElementSibling;
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    newComment.textContent = commentText;
+                    commentsList.appendChild(newComment);
+                    commentInput.value = '';
+                }
+            });
+        });
+        
+        // Modal functionality
+        const modal = document.getElementById('loginModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalTabs = document.querySelectorAll('.modal-tab');
+        const nameGroup = document.getElementById('nameGroup');
+        const submitText = document.getElementById('submitText');
+        
+        function openLoginModal(type) {
+            modal.classList.add('active');
+            if (type === 'join') {
+                modalTitle.textContent = 'Join Saarthi Forum';
+            } else {
+                modalTitle.textContent = 'Create New Forum';
+            }
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Tab switching
+        modalTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                modalTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                if (tab.getAttribute('data-tab') === 'signup') {
+                    nameGroup.style.display = 'block';
+                    submitText.textContent = 'Create Account';
+                } else {
+                    nameGroup.style.display = 'none';
+                    submitText.textContent = 'Login to Forum';
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value;
+            
+            console.log('Form submitted:', { email, password, name });
+            closeModal();
+            
+            // Reset form
+            document.getElementById('loginForm').reset();
+        });
+        
+        // Tab switching in leaderboard
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+        
+        // Discussion controls
+        const discussionControls = document.querySelectorAll('.discussion-controls .btn-ghost');
+        discussionControls.forEach(button => {
+            button.addEventListener('click', () => {
+                const siblings = button.parentElement.querySelectorAll('.btn-ghost');
+                siblings.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const posts = document.querySelectorAll('.post-card');
+            
+            posts.forEach(post => {
+                const title = post.querySelector('.post-title').textContent.toLowerCase();
+                const content = post.querySelector('.post-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = searchTerm ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
+
+
+<footer style="background:#fff; padding:24px; border-top:1px solid #ddd; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; font-size:0.95rem; color:#212121;">
+  <div>
+    <h3 style="font-family:'Montserrat',sans-serif; font-size:1.1rem; color:#1E88E5; margin:0 0 8px 0;">Organisation</h3>
+    <a href="About us.html" style="text-decoration:none; color:#212121; margin-right:12px;">About Saarthi</a>
+    <a href="Contact us.html" style="text-decoration:none; color:#212121; margin-right:12px;">Contact Saarthi</a>
+    <a href="Careers.html" style="text-decoration:none; color:#1E88E5; font-weight:600;">Get Involved</a>
+
+  </div>
+  <div style="display:flex; gap:12px;">
+    <a href="https://facebook.com" target="_blank" style="background:#1877F2; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.9rem; text-decoration:none;">FACEBOOK</a>
+    <a href="https://twitter.com" target="_blank" style="background:#000; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.9rem; text-decoration:none;">X</a>
+    <a href="https://instagram.com" target="_blank" style="background:#E4405F; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.9rem; text-decoration:none;">INSTAGRAM</a>
+  </div>
+</footer>
+
+
+<script src="accessibility.js"></script>
+
+
+</body>
+</html>
