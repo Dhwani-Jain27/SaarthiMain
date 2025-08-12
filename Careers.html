@@ -19,6 +19,7 @@
   <style>
     :root {
       /* Brand palette (HSL for easy theming) */
+      
       --primary: 210 80% 45%;        /* Calm Blue */
       --primary-contrast: 0 0% 100%; /* White */
       --secondary: 170 60% 42%;      /* Soft Teal */
@@ -39,11 +40,11 @@
 
       --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 70% 55%));
     }
-
+:root{ --header-h: 64px; } header{ position:fixed; top:0; left:0; right:0; z-index:1000; } body{ padding-top: var(--header-h); }
     .brand{font-family:'Montserrat';font-weight:700;color:var(--primary);font-size:1.25rem;}
 nav{display:flex;gap:10px;flex-wrap:wrap}
 nav a{text-decoration:none;color:var(--text);padding:6px 8px;border-radius:6px;font-weight:600}
-nav a[aria-current="page"]{background:var(--accent);color:var(--accent-text)}
+nav a[aria-current="page"]{background:var(--accent);color:var(--text)}
 .controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .ctrl-btn{border:1px solid #ccc;background:#fff;border-radius:6px;padding:4px 8px;cursor:pointer;}
 .font-slider{width:100px;}
@@ -127,6 +128,7 @@ body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
 }
   </style>
 
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -212,7 +214,7 @@ body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
     <a href="finder acha wala.html">School &amp; Therapist Finder</a>
     <a href="r6.html" >Resources</a>
     <a href="Community forum.html">Community</a>
-    <a href="Careers.html"> Career</a>
+    <a href="Careers.html" aria-current="page"> Career</a>
     <a href="Contact us.html"> Contact us</a>
   </nav>
   <div class="controls">
@@ -228,29 +230,6 @@ body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
 </header>
 
 
-
-<header>
-  <div class="brand">Saarthi</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="About us.html">About us</a>
-    <a href="finder acha wala.html">School &amp; Therapist Finder</a>
-    <a href="r6.html" >Resources</a>
-    <a href="Community forum.html">Community</a>
-    <a href="Careers.html"> Career</a>
-    <a href="Contact us.html" aria-current="page"> Contact us</a>
-  </nav>
-  <div class="controls">
-    <button id="decreaseFont" class="ctrl-btn">A-</button>
-    <input id="fontSlider" type="range" min="75" max="150" value="100" class="font-slider" title="Font size percentage">
-    <button id="increaseFont" class="ctrl-btn">A+</button>
-    <button id="accessibleToggle" class="ctrl-btn">CONTRAST</button>
-     <button id="sr-toggle-btn" style="position:relative; z-index:999; background:#222; color:#fff; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
-  Screen Reader
-</button>
-
-  </div>
-</header>
 
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -695,6 +674,7 @@ body.accessible .card{background:#3a3a3a;color:var(--accessible-text);}
   </script>
 </body>
 </html>
+
 
 
 
