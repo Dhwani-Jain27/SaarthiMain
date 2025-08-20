@@ -1,0 +1,9 @@
+# Allow everything by default
+User-agent: *
+Allow: /
+
+# Block dashboards from indexing
+Disallow: /hidden.html
+
+# Sitemap location
+Sitemap: https://octopus.do/382q58ho3rp
